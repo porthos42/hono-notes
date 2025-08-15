@@ -30,24 +30,14 @@ function AuthForm({ type }: Props) {
       const password = formData.get("password") as string;
 
       let errorMessage;
-      let title;
-      let description;
-
       if (isLoginForm) {
         errorMessage = (await loginAction(email, password)).errorMessage;
-        title = "Logged In";
-        description = "You have been successfully logged in";
       } else {
         errorMessage = (await signUpAction(email, password)).errorMessage;
-        title = "Signed Up";
-        description = "Check your email for a confirmation link";
       }
 
       if (!errorMessage) {
-        toast.success("Logged Out", {
-          description: "You have been successfully logged out",
-        });
-        router.replace("/");
+        router.replace(`/?toastType=${type}`);
       } else {
         toast.error("Error", {
           description: errorMessage,
