@@ -32,8 +32,22 @@ function AuthForm({ type }: Props) {
       let errorMessage;
       if (isLoginForm) {
         errorMessage = (await loginAction(email, password)).errorMessage;
+        if (!errorMessage)
+          toast.success("Logged in", {
+            description: "You have been successfully logged in",
+            style: {
+              background: "green",
+            },
+          });
       } else {
         errorMessage = (await signUpAction(email, password)).errorMessage;
+        if (!errorMessage)
+          toast.success("Signed Up", {
+            description: "Check your email for a confirmation link",
+            style: {
+              background: "green",
+            },
+          });
       }
 
       if (!errorMessage) {
@@ -41,6 +55,9 @@ function AuthForm({ type }: Props) {
       } else {
         toast.error("Error", {
           description: errorMessage,
+          style: {
+            background: "red",
+          },
         });
       }
     });
