@@ -9,7 +9,7 @@ type Props = {
 };
 
 async function HomePage({ searchParams }: Props) {
-  const noteIdParam = (await searchParams).nodeId;
+  const noteIdParam = (await searchParams).noteId;
   const user = await getUser();
 
   const noteId = Array.isArray(noteIdParam)

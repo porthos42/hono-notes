@@ -6,8 +6,6 @@ type Props = {
 };
 
 function AskAIButton({ user }: Props) {
-  console.log("AskAIButton");
-
   return <div>AskAIButton</div>;
 }
 

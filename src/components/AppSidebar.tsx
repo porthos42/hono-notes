@@ -34,7 +34,7 @@ async function AppSidebar() {
               "Your notes"
             ) : (
               <p>
-                <Link href="/Login" className="underline">
+                <Link href="/login" className="underline">
                   Login
                 </Link>{" "}
                 to see your nodes
