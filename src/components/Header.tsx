@@ -5,12 +5,14 @@ import Link from "next/link";
 import Image from "next/image";
 import LogOutButton from "./LogOutButton";
 import { getUser } from "@/auth/server";
+import { SidebarTrigger } from "./ui/sidebar";
 
 async function Header() {
   const user = await getUser();
 
   return (
     <header className="bg-popover style={ { boxShadow: } } relative flex h-24 items-center justify-between px-3 shadow sm:px-8">
+      <SidebarTrigger className="absolute top-1 left-1" />
       <Link className="flex items-end gap-2" href="/">
         <Image
           src="/honoius.png"
